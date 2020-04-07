@@ -1,0 +1,52 @@
+{
+  "name": "localized-address-format",
+  "version": "0.1.0",
+  "description": "Localized Address Formatting",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "update-formats": "ts-node bin/update-formats.ts",
+    "build": "webpack-cli -p",
+    "format": "tslint -p tsconfig.json --fix",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "test": "jest --config jestconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:dasprid/localized-address-format.git"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "keywords": [
+    "address",
+    "formatting",
+    "l10n",
+    "localize",
+    "typescript"
+  ],
+  "author": "Ben Scholzen 'DASPRiD'",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cli-progress": "^3.4.2",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.1.7",
+    "@types/node-fetch": "^2.5.5",
+    "cli-progress": "^3.6.1",
+    "jest": "^24.9.0",
+    "node-fetch": "^2.6.0",
+    "ts-jest": "^24.3.0",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.2",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {}
+}
