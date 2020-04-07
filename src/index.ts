@@ -117,7 +117,15 @@ const pruneFormat = (formatParts : string[], address : Address) => {
     return prunedFormat;
 };
 
+const pruneAddress = (address : Address) : Address => {
+    return {
+        ...address,
+        addressLines: address.addressLines ? address.addressLines.filter(Boolean) : undefined,
+    };
+};
+
 export const formatAddress = (address : Address) => {
+    address = pruneAddress(address);
     const format = getFormat(address.postalCountry || 'ZZ');
     const formatParts = getFormatParts(format);
     const prunedFormat = pruneFormat(formatParts, address);

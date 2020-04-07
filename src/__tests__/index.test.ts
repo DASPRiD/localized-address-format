@@ -18,3 +18,13 @@ test('formatAddress', () => {
         'San Fransisco, CA 94016',
     ]);
 });
+
+test('pruneAddress', () => {
+    const address = formatAddress({
+        addressLines : ['foo', ''],
+    });
+
+    expect(address).toStrictEqual([
+        'foo',
+    ]);
+});
