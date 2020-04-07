@@ -1,6 +1,6 @@
 {
   "name": "localized-address-format",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Localized Address Formatting",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
