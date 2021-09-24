@@ -4,9 +4,14 @@ import fetch from 'node-fetch';
 
 const serviceUrl = 'https://chromium-i18n.appspot.com/ssl-address/data';
 
+type RootData = {
+    id : 'data';
+    countries : 'string';
+};
+
 const getCountryCodes = async () : Promise<string[]> => {
     const response = await fetch(serviceUrl);
-    const data = await response.json();
+    const data = await response.json() as RootData;
 
     return [...data.countries.split('~'), 'ZZ'];
 };
@@ -20,7 +25,7 @@ const getCountryData = async (countryCode : string, progressBar : SingleBar) : P
     for (let i = 0; i < 5; ++i) {
         try {
             const response = await fetch(`${serviceUrl}/${countryCode}`);
-            const data = await response.json();
+            const data = await response.json() as CountryData;
 
             progressBar.increment();
             return data;
@@ -64,7 +69,7 @@ const main = async () => {
         formats[country.key || 'ZZ'] = country.fmt;
     }
 
-    await fs.writeFile(`${__dirname}/../resources/formats.json`, JSON.stringify(formats));
+    await fs.writeFile(`${__dirname}/../src/formats.json`, JSON.stringify(formats));
 };
 
 main();
