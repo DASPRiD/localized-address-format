@@ -93,15 +93,7 @@ const main = async () => {
         '',
     );
 
-    const contents = lines.join('\n');
-    const filename = `${__dirname}/../src/addressFormats.ts`;
-    const previousContents = await fs.readFile(filename, 'utf-8');
-
-    if (previousContents === contents) {
-        throw new Error('Contents did not change');
-    }
-
-    await fs.writeFile(filename, lines.join('\n'));
+    await fs.writeFile(`${__dirname}/../src/addressFormats.ts`, lines.join('\n'));
 };
 
 main().catch(error => {
