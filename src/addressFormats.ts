@@ -1,5 +1,4 @@
 // This file is auto-generated via "npm run update-formats". Do not alter manually!
-
 const addressFormats = new Map<string, string>([
     ['AC', '%N%n%O%n%A%n%C%n%Z'],
     ['AD', '%N%n%O%n%A%n%Z %C'],
