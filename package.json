@@ -2,26 +2,27 @@
   "name": "localized-address-format",
   "version": "1.1.0",
   "description": "Localized Address Formatting",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "update-formats": "ts-node bin/update-formats.ts",
-    "build": "webpack-cli --mode production",
-    "format": "tslint -p tsconfig.json --fix",
-    "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test && npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
-    "test": "jest --config jestconfig.json"
+    "build": "rm -rf dist && rollup -c",
+    "lint": "eslint .",
+    "test": "jest test --coverage",
+    "prepare": "husky install"
+  },
+  "homepage": "https://github.com/DASPRiD/localized-address-format",
+  "bugs": {
+    "url": "https://github.com/DASPRiD/localized-address-format/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com:dasprid/localized-address-format.git"
+    "url": "https://github.com/DASPRiD/localized-address-format.git"
   },
   "files": [
-    "lib/**/*"
+    "dist/*"
   ],
   "keywords": [
     "address",
@@ -33,19 +34,27 @@
   "author": "Ben Scholzen 'DASPRiD'",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@rollup/plugin-typescript": "^8.3.1",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/cli-progress": "^3.4.2",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.9.6",
     "@types/node-fetch": "^2.5.12",
     "cli-progress": "^3.6.1",
+    "eslint": "^8.12.0",
+    "eslint-config-dasprid": "^0.1.12",
+    "husky": "^7.0.4",
     "jest": "^27.2.1",
+    "lint-staged": "^12.3.7",
     "node-fetch": "^2.6.5",
-    "ts-jest": "^27.0.5",
-    "ts-loader": "^9.2.6",
+    "rollup": "^2.70.1",
+    "ts-jest": "^27.1.4",
     "ts-node": "^10.2.1",
-    "tslint": "^6.1.3",
-    "typescript": "^4.4.3",
-    "webpack": "^5.54.0",
-    "webpack-cli": "^4.8.0"
+    "typescript": "^4.4.3"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
   }
 }

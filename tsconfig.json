@@ -1,18 +1,14 @@
 {
+    "extends": "@tsconfig/recommended/tsconfig.json",
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "lib": [
-            "esnext"
-        ],
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "importsNotUsedAsValues": "error",
         "declaration": true,
-        "outDir": "./lib",
-        "strict": true,
-        "esModuleInterop": true,
-        "resolveJsonModule": true,
-        "downlevelIteration": true
+        "sourceMap": true,
+        "outDir": "dist",
+        "declarationDir": "."
     },
-    "include": ["src"],
-    "exclude": ["node_modules", "**/__tests__/*"]
+    "include": ["src/**/*"],
+    "exclude": ["dist"]
 }
