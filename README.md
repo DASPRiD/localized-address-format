@@ -1,5 +1,10 @@
 # Localized Address Formatting
 
+[![npm version](https://badge.fury.io/js/localized-address-format.svg)](https://badge.fury.io/js/localized-address-format)
+[![Release](https://github.com/DASPRiD/localized-address-format/actions/workflows/release.yml/badge.svg)](https://github.com/DASPRiD/localized-address-format/actions/workflows/release.yml)
+[![codecov](https://codecov.io/gh/DASPRiD/localized-address-format/branch/master/graph/badge.svg?token=ID1YAAB9CP)](https://codecov.io/gh/DASPRiD/localized-address-format)
+
+
 Zero-dependency address formatting library.
 
 If you are in need for simply formatting postal addresses in a localized format, this is the right library for you. It
