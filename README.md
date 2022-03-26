@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/localized-address-format.svg)](https://badge.fury.io/js/localized-address-format)
 [![Release](https://github.com/DASPRiD/localized-address-format/actions/workflows/release.yml/badge.svg)](https://github.com/DASPRiD/localized-address-format/actions/workflows/release.yml)
-[![codecov](https://codecov.io/gh/DASPRiD/localized-address-format/branch/master/graph/badge.svg?token=ID1YAAB9CP)](https://codecov.io/gh/DASPRiD/localized-address-format)
+[![codecov](https://codecov.io/gh/DASPRiD/localized-address-format/branch/main/graph/badge.svg?token=ID1YAAB9CP)](https://codecov.io/gh/DASPRiD/localized-address-format)
 
 
 Zero-dependency address formatting library.
