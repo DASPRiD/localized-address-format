@@ -1,6 +1,10 @@
 name: Update formats
 
 on:
+  workflow_dispatch:
+    branches:
+      - main
+
   schedule:
     - cron: '0 20 * * 0'
 
