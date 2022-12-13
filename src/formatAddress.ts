@@ -1,5 +1,7 @@
 import addressFormats, {defaultAddressFormat} from './addressFormats';
 
+export type ScriptType = 'local' | 'latin';
+
 export type Address = {
     postalCountry ?: string;
     administrativeArea ?: string;
@@ -14,8 +16,14 @@ export type Address = {
 
 type AddressField = keyof Address;
 
-const getFormatString = (countryCode : string) : string => {
-    return addressFormats.get(countryCode.toUpperCase()) ?? defaultAddressFormat;
+const getFormatString = (countryCode : string, scriptType : ScriptType) : string => {
+    const format = addressFormats.get(countryCode.toUpperCase());
+
+    if (!format) {
+        return defaultAddressFormat;
+    }
+
+    return format[scriptType] ?? format.local;
 };
 
 const getFormatSubstrings = (format : string) : string[] => {
@@ -123,8 +131,8 @@ const pruneFormat = (formatSubstrings : string[], address : Address) : string[] 
     return prunedFormat;
 };
 
-const formatAddress = (address : Address) : string[] => {
-    const formatString = getFormatString(address.postalCountry ?? 'ZZ');
+const formatAddress = (address : Address, scriptType : ScriptType = 'local') : string[] => {
+    const formatString = getFormatString(address.postalCountry ?? 'ZZ', scriptType);
     const formatSubstrings = getFormatSubstrings(formatString);
     const prunedFormat = pruneFormat(formatSubstrings, address);
 

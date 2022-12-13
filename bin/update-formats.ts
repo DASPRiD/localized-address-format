@@ -23,6 +23,7 @@ const getCountryCodes = async () : Promise<string[]> => {
 type CountryData = {
     key ?: string;
     fmt ?: string;
+    lfmt ?: string;
 };
 
 const getCountryData = async (countryCode : string, progressBar : SingleBar) : Promise<CountryData> => {
@@ -62,7 +63,12 @@ const main = async () => {
     const lines = [
         '// This file is auto-generated via "npm run update-formats". Do not alter manually!',
         '',
-        'const addressFormats = new Map<string, string>([',
+        'type Format = {',
+        '    local : string;',
+        '    latin ?: string;',
+        '};',
+        '',
+        'const addressFormats = new Map<string, Format>([',
     ];
     let defaultAddressFormat : string | null = null;
 
@@ -76,7 +82,13 @@ const main = async () => {
             continue;
         }
 
-        lines.push(`    ['${country.key}', '${country.fmt}'],`);
+        const formats = [`local: '${country.fmt}'`];
+
+        if (country.lfmt) {
+            formats.push(`latin: '${country.lfmt}'`);
+        }
+
+        lines.push(`    ['${country.key}', {${formats.join(', ')}}],`);
     }
 
     lines.push(']);');

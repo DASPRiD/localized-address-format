@@ -1,24 +1,5 @@
 import {formatAddress} from '../src';
-/*
-test('formatAddress', () => {
-    const address = formatAddress({
-        postalCountry: 'US',
-        administrativeArea: 'CA',
-        locality: 'San Fransisco',
-        postalCode: '94016',
-        organization: 'Example Org.',
-        name: 'Jon Doe',
-        addressLines: ['548 Market St'],
-    });
 
-    expect(address).toStrictEqual([
-        'Jon Doe',
-        'Example Org.',
-        '548 Market St',
-        'San Fransisco, CA 94016',
-    ]);
-});
-*/
 describe('formatAddress', () => {
     it('should omit missing fields with literals between fields', () => {
         expect(formatAddress(
@@ -71,6 +52,26 @@ describe('formatAddress', () => {
         )).toStrictEqual(['Name', 'Org', 'Line 1', 'City']);
         expect(formatAddress(
             {name: 'Name', organization: 'Org', addressLines: ['Line 1'], locality: 'City'}
+        )).toStrictEqual(['Name', 'Org', 'Line 1', 'City']);
+    });
+
+    it('should use local script type by default', () => {
+        expect(formatAddress(
+            {postalCountry: 'HK', name: 'Name', organization: 'Org', addressLines: ['Line 1'], locality: 'City'}
+        )).toStrictEqual(['City', 'Line 1', 'Org', 'Name']);
+    });
+
+    it('should use latin script type when requested', () => {
+        expect(formatAddress(
+            {postalCountry: 'HK', name: 'Name', organization: 'Org', addressLines: ['Line 1'], locality: 'City'},
+            'latin'
+        )).toStrictEqual(['Name', 'Org', 'Line 1', 'City']);
+    });
+
+    it('should fall back to local script type when latin is not available', () => {
+        expect(formatAddress(
+            {postalCountry: 'US', name: 'Name', organization: 'Org', addressLines: ['Line 1'], locality: 'City'},
+            'latin'
         )).toStrictEqual(['Name', 'Org', 'Line 1', 'City']);
     });
 });

@@ -30,6 +30,9 @@ console.log(formatAddress({
 }).join('\n'));
 ```
 
+This library formats addresses in the local script type by default. If you prefer to use the latin script type, pass
+`latin` as second argument to the `formatAddress()` function.
+
 All fields of the address are optional and can either be left out completely or passed in as empty string or, in the
 case of `addressLines`, be an empty array. The format of the resulting address is dependent on the `postalCountry`.
 
