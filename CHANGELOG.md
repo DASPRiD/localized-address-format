@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.3.0](https://github.com/DASPRiD/localized-address-format/compare/v1.2.1...v1.3.0) (2022-12-13)
+
+
+### Features
+
+* allow switching to latin script type ([4f9154f](https://github.com/DASPRiD/localized-address-format/commit/4f9154f165c736270e88cac2567122ee213a1a96)), closes [#16](https://github.com/DASPRiD/localized-address-format/issues/16)
+
 ## [1.2.1](https://github.com/DASPRiD/localized-address-format/compare/v1.2.0...v1.2.1) (2022-03-26)
 
 
