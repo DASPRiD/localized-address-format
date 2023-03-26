@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/DASPRiD/localized-address-format/compare/v1.3.0...v1.3.1) (2023-03-26)
+
+
+### Bug Fixes
+
+* **formats:** update address formats to 2023-03-26 ([7b1a0f1](https://github.com/DASPRiD/localized-address-format/commit/7b1a0f1e17c581b489ccf62fbdd0194a825798dc))
+
 # [1.3.0](https://github.com/DASPRiD/localized-address-format/compare/v1.2.1...v1.3.0) (2022-12-13)
 
 
