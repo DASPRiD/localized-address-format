@@ -2,9 +2,6 @@ name: Update formats
 
 on:
   workflow_dispatch:
-    branches:
-      - main
-
   schedule:
     - cron: '0 20 * * 0'
 
@@ -14,15 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 24.x
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         env:
           cache-name: cache-node-modules
         with:
