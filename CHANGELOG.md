@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/DASPRiD/localized-address-format/compare/v1.3.2...v1.3.3) (2025-10-23)
+
+
+### Bug Fixes
+
+* add provenance attestation ([a6d9abd](https://github.com/DASPRiD/localized-address-format/commit/a6d9abdf793efeba1df93c74fe340a7bc37a69d1))
+
 ## [1.3.2](https://github.com/DASPRiD/localized-address-format/compare/v1.3.1...v1.3.2) (2025-08-15)
 
 

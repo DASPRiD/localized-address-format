@@ -1,6 +1,6 @@
 {
   "name": "localized-address-format",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Localized Address Formatting",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
